@@ -12,7 +12,7 @@ The **Insights** tab then shows, front and center, how much you've wasted on stu
 
 ## Live app
 
-Installable PWA (works offline): **https://tsvalexander06.github.io/spending-tracker/**
+Installable PWA (works offline): **https://tsvalexander06.github.io/Spending-tracker/**
 
 On a phone: open the link in Safari/Chrome → **Add to Home Screen** → it runs like a native app.
 
