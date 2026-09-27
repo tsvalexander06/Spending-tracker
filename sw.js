@@ -2,7 +2,7 @@
    Network-first for the app code (HTML / JS / manifest) so updates reach users
    immediately when online; cache-first for static assets (icons). Cache is the
    offline fallback. All user data lives in localStorage, never here. */
-const CACHE = "spend-v1";
+const CACHE = "spend-v2";
 const ASSETS = [
   "./",
   "./index.html",

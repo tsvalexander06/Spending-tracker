@@ -1,14 +1,17 @@
 {
   "id": "/spending-tracker/",
-  "name": "Was It Worth It — Spending Tracker",
-  "short_name": "Worth It",
-  "description": "Log every purchase as a Necessity, a Want, or a Stupid buy — and see exactly how much you waste. Works offline.",
+  "name": "Necessary? — Spending Tracker",
+  "short_name": "Necessary?",
+  "description": "Log a purchase in two taps — Necessary or Unnecessary — and see how much you've wasted this month, subscriptions included. Works offline.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#12131a",
   "theme_color": "#12131a",
+  "shortcuts": [
+    { "name": "Log a spend", "short_name": "Log", "url": "./index.html", "description": "Jump straight to logging a purchase" }
+  ],
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
