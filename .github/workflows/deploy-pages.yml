@@ -1,0 +1,51 @@
+name: Deploy Spending Tracker to Pages
+
+# Publishes this app to GitHub Pages, installable on mobile and working offline,
+# served at https://<owner>.github.io/spending-tracker/. Icons are generated at
+# build time by scripts/genicons.js so no binaries live in the repo.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages (auto-enable if needed)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Build site (app files + generated PNG icons)
+        run: |
+          mkdir -p _site/icons
+          cp index.html sw.js manifest.webmanifest _site/
+          node scripts/genicons.js _site/icons
+          echo "Built site:"; ls -la _site; echo "Icons:"; ls -la _site/icons
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
